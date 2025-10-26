@@ -471,169 +471,186 @@ a {
 
 /* === STYLING KHUSUS HALAMAN PEMBAYARAN (payment.html) === */
 body.payment-page {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary); /* Deep Navy Blue background */
     color: var(--color-text-light);
+    font-family: var(--font-family);
     text-align: center;
 }
 
 .payment-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
     padding: 20px;
 }
 
-.header-payment {
-    color: var(--color-secondary);
-    font-size: 2.5em;
-    font-weight: 800;
-    margin-bottom: 10px;
+.header-payment { 
+    color: var(--color-secondary); 
+    font-size: 2.8em; 
+    font-weight: 800; 
+    margin-bottom: 5px; 
 }
-
-.subtitle-payment {
-    color: #9CA3AF;
-    margin-bottom: 40px;
-}
-
-.method-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.method-card {
-    background-color: #374151;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #4B5563;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-
-.method-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-weight: 600;
-}
-
-.qr-code {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    display: inline-block;
-    margin: 15px 0;
-}
-
-.qr-code img {
-    width: 180px;
-    height: 180px;
-}
-
-.status {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: 700;
-}
-
-.btn-download {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* Konfirmasi Admin */
-.admin-contact {
-    background-color: #374151;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #4B5563;
-}
-
-.admin-contact h2 {
-    font-size: 1.5em;
-    color: var(--color-secondary);
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.contact-box-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-.contact-box {
-    background-color: #1F2937;
-    padding: 15px;
-    border-radius: 8px;
-    width: 50%;
-}
-
-.contact-box p {
-    font-size: 0.9em;
-    color: #ccc;
-    margin-bottom: 5px;
-}
-
-.contact-box span {
-    font-weight: 700;
-    color: #fff;
-    display: block;
+.subtitle-payment { 
+    color: #9CA3AF; 
+    margin-bottom: 50px; 
     font-size: 1.1em;
 }
 
-.discord-button {
-    margin-top: 30px;
-    background-color: #5865F2;
-    color: white;
-    padding: 12px 30px;
-    border: none;
+/* Wrapper Metode Pembayaran */
+.payment-methods-wrapper h2, .admin-contact-section h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-secondary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.subtitle-contact {
+    font-size: 1em;
+    color: #9CA3AF;
+    margin-bottom: 30px;
+    display: block;
+}
+
+
+/* Grid Kartu Metode Pembayaran */
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.method-card {
+    background-color: #374151; /* Kartu Gelap */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #4B5563;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    transition: transform 0.3s;
+}
+.method-card:hover { transform: translateY(-3px); border-color: var(--color-secondary); }
+
+.method-title { 
+    font-size: 1.4em; 
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+}
+.method-title i { font-size: 1.6em; }
+
+.status {
+    position: absolute; top: 15px; right: 15px;
+    background-color: var(--color-secondary); color: var(--color-primary); 
+    padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700;
+}
+
+/* QR Code */
+.qr-box { 
+    background-color: #fff; 
+    padding: 15px; 
+    border-radius: 8px; 
+    display: inline-block; 
+    margin: 15px 0 25px; 
+}
+.qr-box img { width: 180px; height: 180px; }
+
+/* Transfer Detail */
+.transfer-detail {
+    background-color: #1F2937;
+    border: 1px dashed #4B5563;
+    padding: 20px;
     border-radius: 8px;
-    font-weight: 600;
+    margin: 20px 0 25px;
+    text-align: center;
+}
+.transfer-detail p { margin: 5px 0; font-size: 1em; color: #fff; }
+
+/* Tombol Download & Copy Rekening */
+.btn-download, .btn-copy-account {
+    background-color: #1E40AF; 
+    color: var(--color-text-light); 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+    width: 100%;
+}
+.btn-copy-account { background-color: var(--color-secondary); color: var(--color-primary); }
+.btn-download:hover { background-color: #1E3A8A; }
+.btn-copy-account:hover { background-color: #059669; }
+
+
+/* Bagian Konfirmasi Admin */
+.admin-contact-section { padding: 30px 0; }
+
+.contact-box-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    margin-bottom: 40px;
+}
+
+.contact-box { 
+    background-color: #374151; 
+    padding: 20px; 
+    border-radius: 10px; 
+    width: 45%;
+    min-width: 250px;
+}
+.contact-box p { font-size: 0.9em; color: #ccc; margin-bottom: 5px; }
+.contact-number { font-weight: 700; color: #fff; display: block; font-size: 1.2em; margin-bottom: 15px; }
+
+.btn-contact-wa {
+    background-color: #25D366; 
+    color: #fff;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    display: block;
+}
+.btn-contact-wa:hover { background-color: #1EAA52; }
+
+.btn-contact-copy {
+    background-color: var(--color-secondary); 
+    color: var(--color-primary); 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    font-weight: 600; 
     cursor: pointer;
+    width: 100%;
 }
+.btn-contact-copy:hover { background-color: #059669; color: var(--color-text-light); }
 
-/* === MEDIA QUERIES (Responsif Sederhana) === */
-@media (max-width: 992px) {
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+.discord-button {
+    background-color: #5865F2; 
+    color: white; 
+    padding: 12px 40px; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer;
+    font-size: 1.1em;
 }
+.discord-button:hover { background-color: #4552CD; }
 
-@media (max-width: 768px) {
-    .hero-nanblox h1 {
-        font-size: 2em;
-    }
-    .trust-badges {
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 10px;
-    }
-    .filter-section .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .search-box {
-        width: 100%;
-        margin-top: 10px;
-    }
-    .method-grid, .contact-box-grid {
+/* === MEDIA QUERIES (Responsif) === */
+@media (max-width: 850px) {
+    .method-grid {
         grid-template-columns: 1fr;
+    }
+    .contact-box-grid {
+        flex-direction: column;
+        gap: 20px;
     }
     .contact-box {
         width: 100%;
