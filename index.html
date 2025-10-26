@@ -139,53 +139,63 @@
                     <a href="#" class="details-link">Lihat Detail Produk</a>
                 </div>
             </div>
-
-        </div>
+            
+            </div>
     </section>
 
-    <div class="modal-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <h2 id="modalTitle">Konfirmasi Pesanan</h2>
-    
-    <div class="product-info-block">
-        <i class="fas fa-shopping-bag"></i> 
-        <p>Produk Dipesan: <span id="productNameDisplay"></span></p>
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2 id="modalTitle">Konfirmasi Pesanan</h2>
+            
+            <div class="product-info-block">
+                <i class="fas fa-shopping-bag"></i> 
+                <p>Produk Dipesan: <span id="productNameDisplay"></span></p>
+            </div>
+
+            <div class="step-card step-payment">
+                <h3 class="step-title"><span class="step-number">1</span> Lakukan Pembayaran</h3>
+                <p class="step-description">Lihat metode transfer yang tersedia dan lakukan pembayaran sesuai harga produk.</p>
+                
+                <a href="payment.html" target="_blank" class="btn btn-payment">
+                    <i class="fas fa-credit-card"></i> Lihat Metode Pembayaran
+                </a>
+            </div>
+
+            <div class="step-card step-chat">
+                <h3 class="step-title"><span class="step-number">2</span> Konfirmasi ke Admin (Wajib)</h3>
+                <p class="step-description">Klik tombol di bawah ini untuk mengirim pesan pesanan dan bukti transfer Anda via WhatsApp.</p>
+                
+                <button id="whatsappOrderBtn" class="btn btn-whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Pesan & Kirim WA Otomatis
+                </button>
+            </div>
+
+            <div class="info-alert info-modal">
+                <i class="fas fa-info-circle"></i> Info: Proses order cepat setelah transfer dikonfirmasi.
+            </div>
+        </div>
     </div>
 
-    <div class="step-card step-payment">
-        <h3 class="step-title"><span class="step-number">1</span> Lakukan Pembayaran</h3>
-        <p class="step-description">Lihat metode transfer yang tersedia dan lakukan pembayaran sesuai harga produk.</p>
-        
-        <a href="payment.html" target="_blank" class="btn btn-payment">
-            <i class="fas fa-credit-card"></i> Lihat Metode Pembayaran
-        </a>
-    </div>
-
-    <div class="step-card step-chat">
-        <h3 class="step-title"><span class="step-number">2</span> Konfirmasi ke Admin (Wajib)</h3>
-        <p class="step-description">Klik tombol di bawah ini untuk mengirim pesan pesanan dan bukti transfer Anda via WhatsApp.</p>
-        
-        <button id="whatsappOrderBtn" class="btn btn-whatsapp-order">
-            <i class="fab fa-whatsapp"></i> Pesan & Kirim WA Otomatis
-        </button>
-    </div>
-
-    <div class="info-alert info-modal">
-        <i class="fas fa-info-circle"></i> Proses order cepat setelah transfer dikonfirmasi.
-    </div>
-</div>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 NanBlox. All Rights Reserved. | <a href="#">Kebijakan Privasi</a></p>
+        </div>
+    </footer>
 
     <script>
-        const ADMIN_WA_NUMBER = '6285351187520'; 
+        const ADMIN_WA_NUMBER = '6285351187520'; // Ganti dengan nomor WhatsApp Admin Anda
 
         // Fungsi Pop-up
         function openPopup(productName, price) {
             document.getElementById('modalTitle').textContent = 'Order ' + productName;
             document.getElementById('productNameDisplay').textContent = `${productName} (${price})`;
             
-            const message = encodeURIComponent(`Halo Admin NanBlox, saya ingin memesan produk:\n\nProduk: ${productName}\nHarga: ${price}\n\nMohon petunjuk pembayarannya dan link halaman pembayaran.`);
+            // Siapkan pesan WA otomatis
+            const message = encodeURIComponent(`Halo Admin NanBlox, saya ingin memesan produk:\n\nProduk: ${productName}\nHarga: ${price}\n\nMohon petunjuk pembayarannya.`);
             const whatsappUrl = `https://wa.me/${ADMIN_WA_NUMBER}?text=${message}`;
             
+            // Atur fungsi tombol WA
             document.getElementById('whatsappOrderBtn').onclick = () => {
                 window.open(whatsappUrl, '_blank');
                 closePopup();
@@ -223,6 +233,7 @@
                     products.forEach(product => {
                         const productCategories = product.getAttribute('data-category');
 
+                        // Logika filtering: tampilkan jika kategori 'all' dipilih ATAU kategori produk mengandung kategori yang dipilih
                         if (selectedCategory === 'all' || productCategories.includes(selectedCategory)) {
                             product.style.display = 'block';
                         } else {
@@ -235,4 +246,3 @@
     </script>
 </body>
 </html>
-
