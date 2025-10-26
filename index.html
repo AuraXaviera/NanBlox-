@@ -1,0 +1,176 @@
+<?php
+// PHP ini hanya untuk struktur, tidak ada logika server-side yang kompleks.
+// Jika di hosting PHP, Anda bisa menggunakan ini untuk memuat data produk dari database.
+
+// Contoh data produk (dalam array PHP)
+$products = [
+    [
+        'name' => 'SCRIPT 99 MALAM DAY SKIPER',
+        'price' => '45.000',
+        'features' => ['SCRIPT 99 MALAM DAY SKIPER', 'AMAN ANTI BANNED', 'FITUR LENGKAP UNTUK GAME'],
+        'is_bestseller' => true
+    ],
+    [
+        'name' => 'Pro Executor V3',
+        'price' => '24.99', // Asumsi mata uang asing, sesuaikan
+        'features' => ['High-speed executor', 'Stable & undetectable', 'Advanced features'],
+        'is_bestseller' => false
+    ]
+    // Tambahkan produk lain di sini...
+];
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOXZSTORE - Premium Roblox Scripts & Assets</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cube"></i> BLOX<span class="highlight">STORE</span>
+            </div>
+            </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>BLOXZSTORE - ROBLOX SCRIPT STORE</h1>
+            <p>Tempat terpercaya untuk kebutuhan Script Roblox. Fast response, harga bersahabat, pelayanan ramah, dan 100% aman!</p>
+            <div class="trust-badges">
+                <div class="badge"><i class="fas fa-users"></i> 1K+ TOTAL CUSTOMER</div>
+                <div class="badge"><i class="fas fa-star"></i> 4.9 RATING</div>
+                <div class="badge"><i class="fas fa-clock"></i> 24/7 ONLINE</div>
+                <div class="badge"><i class="fas fa-shield-alt"></i> 100% AMAN</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="filter-section">
+        <div class="container">
+            <div class="categories">
+                <span class="category-chip active">Best Seller</span>
+                <span class="category-chip">Script</span>
+                <span class="category-chip">Executor</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Click untuk mencari...">
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <div class="container product-grid">
+            
+            <?php foreach ($products as $product): ?>
+            <div class="product-card">
+                <?php if ($product['is_bestseller']): ?>
+                    <div class="badge-label">BEST SELLER</div>
+                <?php endif; ?>
+                <div class="product-header">
+                    <img src="avatar.png" alt="Product Icon"> 
+                    <p class="instant-delivery">Pengiriman Instant</p>
+                </div>
+                <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                <ul class="features">
+                    <?php foreach ($product['features'] as $feature): ?>
+                        <li>• <?php echo htmlspecialchars($feature); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="description-link">Lihat Deskripsi Klik untuk baca</div>
+                <p class="price">Rp <?php echo htmlspecialchars($product['price']); ?></p>
+                
+                <button class="btn btn-order" 
+                        onclick="openPopup('<?php echo htmlspecialchars($product['name']); ?>', '<?php echo htmlspecialchars($product['price']); ?>')">
+                    Pesan Sekarang
+                </button>
+            </div>
+            <?php endforeach; ?>
+            
+        </div>
+    </section>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2 id="modalTitle">Order Product Name</h2> 
+            <input type="hidden" id="productPrice">
+
+            <div class="modal-card transfer-section">
+                <p class="card-title"><i class="fas fa-credit-card"></i> Transfer Sesuai Harga</p>
+                <p class="card-subtitle">Silakan transfer sesuai harga produk (<span id="displayPrice">Rp 0</span>) ke:</p>
+                <div class="bank-info">
+                    Bank Transfer / E-Wallet
+                </div>
+                <button class="btn btn-payment" onclick="redirectToPayment()">
+                    <i class="fas fa-external-link-alt"></i> Buka Halaman Pembayaran
+                </button>
+            </div>
+
+            <div class="modal-card chat-section">
+                <p class="card-title"><i class="fab fa-whatsapp"></i> Chat Admin</p>
+                <p class="card-subtitle">Setelah transfer, silakan chat admin untuk konfirmasi:</p>
+                <div class="contact-line">
+                    <span class="contact-label">WhatsApp:</span>
+                    <span class="contact-number">085351187520</span>
+                    <button class="btn-copy">Salin</button>
+                </div>
+                <div class="contact-line">
+                    <span class="contact-label">Chat Admin:</span>
+                    <span class="contact-number">085351187520</span>
+                    <a href="https://wa.me/6285351187520" target="_blank" class="btn-whatsapp">Buka WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="info-alert">
+                <i class="fas fa-exclamation-triangle"></i> Info: Dilarang keras spam & call
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedProduct = {};
+
+        function openPopup(name, price) {
+            selectedProduct = { name: name, price: price };
+            document.getElementById('modalTitle').textContent = 'Order ' + name;
+            document.getElementById('displayPrice').textContent = 'Rp ' + price;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+        
+        function redirectToPayment() {
+            // Ini adalah bagian PHP yang paling penting.
+            // Di server PHP, ini akan mengirimkan data produk ke halaman pembayaran.
+            // Contohnya, kita kirimkan sebagai parameter URL (GET):
+            const url = `payment.php?item=${encodeURIComponent(selectedProduct.name)}&price=${encodeURIComponent(selectedProduct.price)}`;
+            window.location.href = url; 
+        }
+
+        // ... Script Salin dan Modal Close lainnya ...
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closePopup();
+            }
+        };
+
+        document.querySelector('.btn-copy').addEventListener('click', function() {
+            const number = document.querySelector('.contact-number').textContent;
+            navigator.clipboard.writeText(number).then(() => {
+                alert('Nomor WhatsApp berhasil disalin!');
+            });
+        });
+    </script>
+</body>
+</html>
