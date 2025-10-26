@@ -10,8 +10,12 @@
     --font-family: 'Inter', sans-serif;
 }
 
-/* Reset Dasar & Tipografi */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* === RESET DASAR & TIPOGRAFI === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: var(--font-family);
@@ -20,8 +24,17 @@ body {
     color: var(--color-text-dark);
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
 
 /* === HEADER & NAVIGASI === */
 .main-header {
@@ -29,11 +42,13 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     padding: 15px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
+
 .main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
     font-size: 1.8em;
     font-weight: 800;
@@ -41,8 +56,15 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     display: flex;
     align-items: center;
 }
-.logo i { color: var(--color-secondary); margin-right: 10px; }
-.logo .nan { color: var(--color-secondary); }
+
+.logo i {
+    color: var(--color-secondary);
+    margin-right: 10px;
+}
+
+.logo .nan {
+    color: var(--color-secondary);
+}
 
 .btn-review {
     color: var(--color-primary) !important;
@@ -51,8 +73,10 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     border-radius: 5px;
     font-weight: 500;
 }
-.btn-review:hover { background-color: #F3F4F6; }
 
+.btn-review:hover {
+    background-color: #F3F4F6;
+}
 
 /* === HERO SECTION === */
 .hero-nanblox {
@@ -61,21 +85,42 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     padding: 80px 0 40px;
     text-align: center;
 }
-.hero-nanblox h1 { font-size: 2.5em; margin-bottom: 10px; font-weight: 700; }
-.hero-nanblox p { font-size: 1.1em; opacity: 0.8; margin-bottom: 40px; }
+
+.hero-nanblox h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero-nanblox p {
+    font-size: 1.1em;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
 
 .trust-badges {
     display: flex;
     justify-content: center;
     gap: 40px;
-    background-color: #374151; /* Latar belakang badge agak gelap */
+    background-color: #374151;
     border-radius: 8px;
     padding: 15px 20px;
     margin: 0 auto;
     max-width: 800px;
 }
-.badge { display: flex; align-items: center; font-weight: 500; font-size: 0.9em; }
-.badge i { font-size: 1.2em; margin-right: 8px; color: var(--color-secondary); }
+
+.badge {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.badge i {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: var(--color-secondary);
+}
 
 /* === FILTER & TABS (JavaScript Interaction) === */
 .filter-section {
@@ -83,6 +128,7 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     background-color: var(--color-card-bg);
     border-bottom: 1px solid #E5E7EB;
 }
+
 .filter-section .container {
     display: flex;
     justify-content: space-between;
@@ -90,38 +136,65 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     flex-wrap: wrap;
     gap: 20px;
 }
+
 .categories {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
+
 .category-chip {
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.9em;
     cursor: pointer;
-    background-color: #F3F4F6; /* Latar belakang chip netral */
+    background-color: #F3F4F6;
     color: #4B5563;
     transition: background-color 0.3s, color 0.3s;
     font-weight: 500;
 }
-.category-chip:hover { background-color: #E5E7EB; }
+
+.category-chip:hover {
+    background-color: #E5E7EB;
+}
+
 .category-chip.active {
     background-color: var(--color-secondary);
     color: var(--color-text-light);
     font-weight: 600;
 }
-.search-box { border: 1px solid #D1D5DB; border-radius: 20px; padding: 5px 15px; display: flex; align-items: center; }
-.search-box input { border: none; outline: none; padding: 5px 10px; font-size: 0.9em; background: transparent; }
-.search-box i { color: #999; }
+
+.search-box {
+    border: 1px solid #D1D5DB;
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background: transparent;
+}
+
+.search-box i {
+    color: #999;
+}
 
 /* === PRODUCT GRID STYLING === */
-.product-section { padding: 40px 0; }
+.product-section {
+    padding: 40px 0;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
+
 .product-card {
     background-color: var(--color-card-bg);
     border-radius: 12px;
@@ -131,14 +204,16 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid #E5E7EB;
 }
-.product-card:hover { 
-    transform: translateY(-5px); 
+
+.product-card:hover {
+    transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .best-seller-label {
     position: absolute;
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     background-color: var(--color-secondary);
     color: var(--color-primary);
     padding: 5px 15px;
@@ -146,26 +221,44 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     font-weight: 700;
     border-bottom-left-radius: 8px;
 }
-.card-body { padding: 25px; }
+
+.card-body {
+    padding: 25px;
+}
 
 .product-icon {
     font-size: 2em;
     margin-bottom: 15px;
     color: var(--color-primary);
 }
-.product-title { font-size: 1.4em; margin-bottom: 5px; color: var(--color-primary); font-weight: 700; }
-.package-name { font-size: 0.9em; color: #6B7280; margin-bottom: 20px; }
 
-.price-box { margin-bottom: 20px; }
+.product-title {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.package-name {
+    font-size: 0.9em;
+    color: #6B7280;
+    margin-bottom: 20px;
+}
+
+.price-box {
+    margin-bottom: 20px;
+}
+
 .price-old {
     text-decoration: line-through;
     color: #9CA3AF;
     font-size: 0.9em;
 }
+
 .price-new {
     font-size: 1.8em;
     font-weight: 800;
-    color: var(--color-secondary); /* Harga baru menggunakan aksen */
+    color: var(--color-secondary);
 }
 
 .features-list {
@@ -176,8 +269,18 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     color: var(--color-text-dark);
     margin: 15px 0;
 }
-.features-list li { margin-bottom: 8px; display: flex; align-items: center; }
-.features-list i { color: var(--color-secondary); margin-right: 10px; font-size: 0.8em; }
+
+.features-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.features-list i {
+    color: var(--color-secondary);
+    margin-right: 10px;
+    font-size: 0.8em;
+}
 
 .btn-order {
     background-color: var(--color-primary);
@@ -191,7 +294,10 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     width: 100%;
     margin-top: 15px;
 }
-.btn-order:hover { background-color: #374151; }
+
+.btn-order:hover {
+    background-color: #374151;
+}
 
 .details-link {
     display: block;
@@ -200,8 +306,336 @@ a { text-decoration: none; color: var(--color-primary); transition: color 0.3s; 
     margin-top: 10px;
     font-size: 0.85em;
 }
-.details-link:hover { color: var(--color-primary); }
 
-/* === MODAL STYLING (diadaptasi) === */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
-.modal-content { background-color: var(--color-card-bg); border-radius
+.details-link:hover {
+    color: var(--color-primary);
+}
+
+/* === MODAL POP-UP STYLING (Minimalis & Profesional) === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    line-height: 1;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Blok Informasi Produk di Atas Modal */
+.product-info-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: #E5E7EB;
+    border-radius: 8px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.product-info-block i {
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+.product-info-block span {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+/* Styling Kartu Langkah (Step Card) */
+.step-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.step-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    font-size: 0.8em;
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+.step-description {
+    font-size: 0.85em;
+    color: #6B7280;
+    margin-bottom: 15px;
+}
+
+/* Tombol Pembayaran */
+.btn-payment {
+    background-color: #1E40AF;
+    color: var(--color-text-light);
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    display: block;
+    text-align: center;
+}
+
+.btn-payment:hover {
+    background-color: #1E3A8A;
+}
+
+/* Tombol WhatsApp */
+.btn-whatsapp-order {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+    border: none;
+}
+
+.btn-whatsapp-order:hover {
+    background-color: #059669;
+    color: var(--color-text-light);
+}
+
+.info-alert {
+    background-color: #ECFDF5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.85em;
+    margin-top: 15px;
+}
+
+.info-alert i {
+    margin-right: 5px;
+}
+
+
+/* === STYLING KHUSUS HALAMAN PEMBAYARAN (payment.html) === */
+body.payment-page {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.payment-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.header-payment {
+    color: var(--color-secondary);
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.subtitle-payment {
+    color: #9CA3AF;
+    margin-bottom: 40px;
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.method-card {
+    background-color: #374151;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #4B5563;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.method-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.qr-code {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.qr-code img {
+    width: 180px;
+    height: 180px;
+}
+
+.status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.btn-download {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Konfirmasi Admin */
+.admin-contact {
+    background-color: #374151;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #4B5563;
+}
+
+.admin-contact h2 {
+    font-size: 1.5em;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-box-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.contact-box {
+    background-color: #1F2937;
+    padding: 15px;
+    border-radius: 8px;
+    width: 50%;
+}
+
+.contact-box p {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.contact-box span {
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    font-size: 1.1em;
+}
+
+.discord-button {
+    margin-top: 30px;
+    background-color: #5865F2;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* === MEDIA QUERIES (Responsif Sederhana) === */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-nanblox h1 {
+        font-size: 2em;
+    }
+    .trust-badges {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 10px;
+    }
+    .filter-section .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-box {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .method-grid, .contact-box-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-box {
+        width: 100%;
+    }
+}
