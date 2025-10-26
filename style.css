@@ -1,0 +1,307 @@
+/* Palet Warna: Ungu (Primer) & Cyan (Aksen) */
+:root {
+    --color-primary: #5E35B1; /* Ungu Gelap */
+    --color-secondary: #00BCD4; /* Cyan Aksen */
+    --color-dark: #1A1A2E; /* Latar Belakang Gelap */
+    --color-light: #F4F4F9; /* Latar Belakang Terang */
+    --color-text: #EAEAEA;
+    --color-text-dark: #333;
+}
+
+/* Reset Dasar & Tipografi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-light); /* Latar belakang website terang */
+    color: var(--color-text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+/* === HEADER & NAVIGASI STYLING === */
+.main-header {
+    background-color: #FFFFFF; /* Header Putih Bersih */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.logo .highlight {
+    color: var(--color-secondary);
+}
+
+.main-nav a {
+    color: var(--color-text-dark);
+    margin: 0 15px;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--color-primary);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #DDD;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: var(--color-light);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 10px;
+    font-size: 0.9em;
+}
+
+.search-bar i {
+    color: #999;
+}
+
+.btn-review {
+    color: var(--color-secondary) !important;
+    border: 1px solid var(--color-secondary);
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    margin-left: 10px !important;
+}
+
+/* === HERO SECTION STYLING === */
+.hero {
+    background-color: var(--color-primary); /* Latar belakang Ungu */
+    color: var(--color-text);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2em;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.hero-actions .btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+}
+
+.btn-primary:hover {
+    background-color: #00a4b7;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.badge i {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: var(--color-secondary);
+}
+
+/* === PRODUCT SECTION STYLING === */
+.product-section {
+    padding: 60px 0;
+    background-color: var(--color-light);
+}
+
+.product-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: var(--color-dark);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    background-color: var(--color-light); /* Placeholder background */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 1.3em;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.rating {
+    color: gold;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.product-card .description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    height: 36px; /* Untuk konsistensi tinggi kartu */
+    overflow: hidden;
+}
+
+.price-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.btn-order {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-order:hover {
+    background-color: #4A148C; /* Shade ungu lebih gelap */
+}
+
+/* Badge Bestseller */
+.badge-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: 700;
+    border-radius: 0 10px 0 10px;
+}
+
+/* === FOOTER STYLING === */
+.main-footer {
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+.main-footer a {
+    color: var(--color-secondary);
+}
+
+/* === MEDIA QUERIES (Responsif Sederhana) === */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .main-nav {
+        display: none; /* Sembunyikan navigasi utama di mobile */
+    }
+    .hero h1 {
+        font-size: 2.2em;
+    }
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .trust-badges {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
