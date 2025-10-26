@@ -1,80 +1,97 @@
-<style>
-/* Pastikan body.payment-page ditambahkan di sini agar styling minimalis baru diterapkan */
-body.payment-page {
-    background-color: var(--color-primary); /* Navy Blue background */
-    color: var(--color-text-light);
-    font-family: var(--font-family);
-    text-align: center;
-}
-.payment-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-}
-.header-payment { color: var(--color-secondary); font-size: 2.5em; font-weight: 800; margin-bottom: 10px; }
-.subtitle-payment { color: #9CA3AF; margin-bottom: 40px; }
-.method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 50px; }
-.method-card {
-    background-color: #374151; /* Kartu Gelap */
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #4B5563;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-.method-card h3 { font-size: 1.5em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; }
-.qr-code { background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block; margin: 15px 0; }
-.qr-code img { width: 180px; height: 180px; }
-.status { background-color: var(--color-secondary); color: var(--color-primary); padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 700; }
-.btn-download { background-color: var(--color-secondary); color: var(--color-primary); padding: 10px 20px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - NanBlox Store</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="payment-page">
 
-/* Konfirmasi Admin */
-.admin-contact { background-color: #374151; padding: 30px; border-radius: 12px; border: 1px solid #4B5563; }
-.admin-contact h2 { font-size: 1.5em; color: var(--color-secondary); margin-bottom: 20px; font-weight: 600; }
-.contact-box-grid { display: flex; justify-content: space-around; gap: 20px; }
-.contact-box { background-color: #1F2937; padding: 15px; border-radius: 8px; width: 50%; }
-.contact-box span { font-weight: 700; color: #fff; display: block; font-size: 1.1em; }
-.discord-button { margin-top: 30px; background-color: #5865F2; color: white; padding: 12px 30px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
-</style>
+    <div class="payment-container">
+        <h1 class="header-payment">Pembayaran NanBlox</h1>
+        <p class="subtitle-payment">Selesaikan pembayaran Anda melalui metode yang tersedia di bawah.</p>
 
-<div class="payment-container">
-    <h1 class="header-payment">Payment NanBlox</h1>
-    <p class="subtitle-payment">Sistem Pembayaran Digital Futuristik</p>
+        <div class="payment-methods-wrapper">
+            <h2>Metode Pembayaran Tersedia</h2>
+            
+            <div class="method-grid">
+                
+                <div class="method-card">
+                    <span class="status">ONLINE</span>
+                    <h3 class="method-title"><i class="fas fa-qrcode"></i> QRIS (Semua E-Wallet)</h3>
+                    
+                    <div class="qr-box">
+                        <img src="qr-code.png" alt="QRIS Code">
+                    </div>
 
-    <div class="method-grid">
-        
-        <div class="method-card">
-            <span class="status">ONLINE</span>
-            <h3><i class="fas fa-qrcode" style="color:#ff7e00;"></i> QRIS</h3>
-            <div class="qr-code">
-                <img src="qr-code.png" alt="QRIS Code"> 
-            </div>
-            <button class="btn-download"><i class="fas fa-download"></i> Download QR Code</button>
-        </div>
+                    <button class="btn-download" onclick="alert('Fungsi download diimplementasikan di sini.')">
+                        <i class="fas fa-download"></i> Unduh QR Code
+                    </button>
+                </div>
 
-        <div class="method-card">
-            <span class="status">ONLINE</span>
-            <h3><i class="fas fa-wallet" style="color:#1e90ff;"></i> DANA</h3>
-            <p>Transfer ke nomor:</p>
-            <p style="font-size:1.2em; font-weight:700;">+62 812-3456-7890</p>
-            <button class="btn-download" style="background-color:#1e90ff;"><i class="fas fa-copy"></i> Salin Nomor</button>
-        </div>
-    </div>
+                <div class="method-card">
+                    <span class="status">ONLINE</span>
+                    <h3 class="method-title"><i class="fas fa-university"></i> Bank Transfer (BCA)</h3>
+                    
+                    <div class="transfer-detail">
+                        <p>Bank: **BCA**</p>
+                        <p>Nomor Rekening: **1234567890**</p>
+                        <p>Atas Nama: **NANBLOX STORE**</p>
+                    </div>
 
-    <div class="admin-contact">
-        <h2>KIRIM BUKTI TF KE ADMIN</h2>
-        <div class="contact-box-grid">
-            <div class="contact-box">
-                <p>WhatsApp</p>
-                <span>+62 853-5118-7520</span>
-            </div>
-            <div class="contact-box">
-                <p>Discord ID</p>
-                <span>lawwtod</span>
+                    <button class="btn-copy-account" data-account="1234567890">
+                        <i class="fas fa-copy"></i> Salin Nomor Rekening
+                    </button>
+                </div>
             </div>
         </div>
         
-        <p style="margin-top: 30px; color: #aaa;">ATAU MASUK SERVER DISCORD LALU BUAT TICKET</p>
-        <button class="discord-button"><i class="fab fa-discord"></i> Masuk Server Discord</button>
+        <div class="admin-contact-section">
+            <h2>Langkah Terakhir: Kirim Bukti Pembayaran</h2>
+            <p class="subtitle-contact">Segera kirimkan **bukti transfer yang valid** ke Admin kami untuk proses pengiriman instan.</p>
+
+            <div class="contact-box-grid">
+                <div class="contact-box">
+                    <p>WhatsApp Konfirmasi</p>
+                    <span class="contact-number">+62 853-5118-7520</span>
+                    <a href="https://wa.me/6285351187520" target="_blank" class="btn-contact-wa">
+                        <i class="fab fa-whatsapp"></i> Chat Sekarang
+                    </a>
+                </div>
+                <div class="contact-box">
+                    <p>Discord Support</p>
+                    <span class="contact-number">lawwtod</span>
+                    <button class="btn-contact-copy" data-id="lawwtod">
+                        <i class="fas fa-copy"></i> Salin ID
+                    </button>
+                </div>
+            </div>
+            
+            <a href="https://discord.gg/your-nanblox-server" target="_blank" class="discord-button">
+                <i class="fab fa-discord"></i> Atau Masuk Server Discord
+            </a>
+        </div>
     </div>
-</div>
+    
+    <script>
+        // JavaScript untuk menyalin nomor rekening
+        document.querySelector('.btn-copy-account').addEventListener('click', function() {
+            const accountNumber = this.getAttribute('data-account');
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                alert('Nomor Rekening berhasil disalin: ' + accountNumber);
+            });
+        });
+        
+        // JavaScript untuk menyalin ID Discord
+        document.querySelector('.btn-contact-copy').addEventListener('click', function() {
+            const discordId = this.getAttribute('data-id');
+            navigator.clipboard.writeText(discordId).then(() => {
+                alert('ID Discord berhasil disalin: ' + discordId);
+            });
+        });
+    </script>
+</body>
+</html>
